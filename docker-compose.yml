@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  # Сервис разработки
+  dev:
+    build:
+      context: .
+      target: build
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "5173:5173"
+    command: npm run dev
+    environment:
+      - NODE_ENV=development
+    networks:
+      - museum-network
+
+  # Сервис продакшена
+  prod:
+    build: .
+    ports:
+      - "80:80"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - museum-network
+    restart: unless-stopped
+
+networks:
+  museum-network:
+    driver: bridge 
