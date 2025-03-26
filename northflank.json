@@ -7,7 +7,7 @@
       },
       "ports": {
         "http": {
-          "port": 80,
+          "port": 5173,
           "expose": true
         }
       },
@@ -21,7 +21,7 @@
       },
       "healthCheck": {
         "path": "/",
-        "port": 80,
+        "port": 5173,
         "initialDelay": 10
       }
     }
