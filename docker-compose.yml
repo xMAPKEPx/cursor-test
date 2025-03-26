@@ -11,9 +11,10 @@ services:
       - /app/node_modules
     ports:
       - "5173:5173"
-    command: npm run dev
+    command: npm run dev -- --host 0.0.0.0
     environment:
       - NODE_ENV=development
+      - VITE_HOST=0.0.0.0
     networks:
       - museum-network
 
