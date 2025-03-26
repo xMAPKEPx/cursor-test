@@ -5,7 +5,7 @@ services:
   dev:
     build:
       context: .
-      target: build
+      dockerfile: Dockerfile
     volumes:
       - .:/app
       - /app/node_modules
